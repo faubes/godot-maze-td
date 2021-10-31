@@ -27,7 +27,7 @@ func _physics_process(delta):
 	if path.empty():
 		return
 	if position.distance_to(path[0]) > desired:
-		var dir = (path[0] - position).normalized()*speed
+		var dir = (path[0] - position).normalized()*speed*delta
 		var hit = move_and_collide(dir, false)
 		if hit:
 			get_new_path()
